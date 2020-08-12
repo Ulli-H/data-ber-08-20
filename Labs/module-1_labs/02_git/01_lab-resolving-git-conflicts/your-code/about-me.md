@@ -1,4 +1,4 @@
-# Who am I : Ulrike Anklam
+# Who am I : I am Ulrike Anklam
 
 * Where are you from? Wiesbaden but originally from the North East of Germany, a small town called Strasburg
 * What do you do? I've been working as a country manager at a livestreaming platform for equestrian sports 
