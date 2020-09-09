@@ -38,3 +38,18 @@ WHERE o.order_purchase_timestamp BETWEEN
 	AND CAST( '2018-09-01' AS DATE))
 GROUP BY c2.customer_state, month_id
 ORDER BY month_id, customer_state ;
+
+
+#week id | revenue (sum price)
+SELECT 
+	DATE_SUB(DATE(o.order_purchase_timestamp),
+		INTERVAL DAYOFWEEK(o.order_purchase_timestamp ) -1 DAY) AS week_id,
+	SUM(oi.price) AS revenue
+FROM orders o 
+	INNER JOIN order_items oi 
+	ON o.order_id = oi.order_id 
+WHERE DATE(o.order_purchase_timestamp) >= '2017-01-02'
+		and DATE(o.order_purchase_timestamp) <= '2018-09-03'
+		AND o.order_status = 'delivered'
+GROUP BY week_id
+ORDER BY week_id;
